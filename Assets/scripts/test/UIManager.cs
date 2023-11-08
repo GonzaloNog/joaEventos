@@ -8,10 +8,11 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject nota;
     public GameObject InteractionUI;
+    public TextMeshProUGUI notaText;
 
     public void Nota(string textoNota)
     {
-        Debug.Log(textoNota);
+        notaText.text = textoNota;
         nota.GetComponent<Animator>().SetInteger("anim",1);
     }
     public void SetTip(bool set)

@@ -21,6 +21,7 @@ public class EventManager : MonoBehaviour
             case "nota":  Nota();  break;
             case "boton": Boton(); break;
             case "botonNota": BotonNota(); break;
+            case "key": newKey(); break;
 
             default: print("Evento No Encontrado: " + a); break;
         }
@@ -35,6 +36,11 @@ public class EventManager : MonoBehaviour
     private void Nota()
     {
         GameManager.instance.GetUI().Nota(GameManager.instance.getInteractionObj().GetComponent<colliderBoton>().texto);
+    }
+    private void newKey()
+    {
+        GameManager.instance.keys++;
+        Destroy(GameManager.instance.getInteractionObj());
     }
     private void BotonNota()
     {

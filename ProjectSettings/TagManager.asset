@@ -11,6 +11,7 @@ TagManager:
   - boton
   - nota
   - botonNota
+  - key
   layers:
   - Default
   - TransparentFX
