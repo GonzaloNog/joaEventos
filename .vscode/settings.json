@@ -52,5 +52,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "juego-terror-joa.sln"
+    "dotnet.defaultSolution": "joaEventos.sln"
 }
