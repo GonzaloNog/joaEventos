@@ -41,4 +41,8 @@ public class GameManager : MonoBehaviour
     {
         return keysList.Contains(num);
     }
+    public void addToKeyList(int id)
+    {
+        keysList.Add(id);
+    }
 }

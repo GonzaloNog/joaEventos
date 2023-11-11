@@ -72,11 +72,19 @@ public class FirstPersonMovement : MonoBehaviour
     {
         if (eventoIsOn)
         {
-            if (eventoOBJ.GetComponent<colliderBoton>().isOpen())
+            colliderBoton colBot = eventoOBJ.GetComponent<colliderBoton>();
+            GameManager.instance.setInteractionObj(eventoOBJ);
+
+            if (colBot.isOpen() || colBot.key.isKey /*tiene que haber una forma mejor*/)
             {
-                Debug.Log("PLayer E");
-                GameManager.instance.setInteractionObj(eventoOBJ);
-                EventManager.instance.Event(eventoOBJ.gameObject.tag);
+                if (colBot.key.on)
+                {
+                    EventManager.instance.Event(eventoOBJ.gameObject.tag, colBot.key.id);
+                }
+                else
+                {
+                    EventManager.instance.Event(eventoOBJ.gameObject.tag);
+                }
             }
         }
         else

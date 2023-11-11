@@ -20,6 +20,7 @@ public class colliderBoton : MonoBehaviour
     {
         public int id;
         public bool on;
+        public bool isKey;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +38,7 @@ public class colliderBoton : MonoBehaviour
     }
     public bool isOpen()
     {
+        //si necesita llave con ID
         if (key.on)
         {
             if (GameManager.instance.isKeyInventori(key.id))
@@ -48,6 +50,7 @@ public class colliderBoton : MonoBehaviour
                 return false;
             }
         }
+        //si necesita llave generica
         else if(keyRecuest)
         {
             if (GameManager.instance.keys > 0)

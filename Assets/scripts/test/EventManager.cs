@@ -14,16 +14,17 @@ public class EventManager : MonoBehaviour
         else
         Destroy(this);
     }
-    public void Event(string a)
+    public void Event(string evento,int keyID = -1)
     {
-        switch (a)
+        switch (evento)
         {
-            case "nota":  Nota();  break;
-            case "boton": Boton(); break;
-            case "botonNota": BotonNota(); break;
-            case "key": newKey(); break;
+            case "nota":       Nota();           break;
+            case "boton":      Boton();          break;
+            case "botonNota":  BotonNota();      break;
+            case "key":        newKey();         break;
+            case "keyID":      NewIdKey(keyID);  break;
 
-            default: print("Evento No Encontrado: " + a); break;
+            default: print("Evento No Encontrado: " + evento); break;
         }
     }
     private void Boton()
@@ -40,6 +41,11 @@ public class EventManager : MonoBehaviour
     private void newKey()
     {
         GameManager.instance.keys++;
+        Destroy(GameManager.instance.getInteractionObj());
+    }
+    private void NewIdKey(int id)
+    {
+        GameManager.instance.addToKeyList(id);
         Destroy(GameManager.instance.getInteractionObj());
     }
     private void BotonNota()
